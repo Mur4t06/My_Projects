@@ -1,0 +1,9 @@
+D:\2022-2023\gp_2022_a\gp_2022_a\bin\Debug\gp_2022_a.exe.config
+D:\2022-2023\gp_2022_a\gp_2022_a\bin\Debug\gp_2022_a.exe
+D:\2022-2023\gp_2022_a\gp_2022_a\bin\Debug\gp_2022_a.pdb
+D:\2022-2023\gp_2022_a\gp_2022_a\obj\Debug\gp_2022_a.csprojResolveAssemblyReference.cache
+D:\2022-2023\gp_2022_a\gp_2022_a\obj\Debug\gp_2022_a.Properties.Resources.resources
+D:\2022-2023\gp_2022_a\gp_2022_a\obj\Debug\gp_2022_a.csproj.GenerateResource.Cache
+D:\2022-2023\gp_2022_a\gp_2022_a\obj\Debug\gp_2022_a.exe
+D:\2022-2023\gp_2022_a\gp_2022_a\obj\Debug\gp_2022_a.pdb
+D:\2022-2023\gp_2022_a\gp_2022_a\obj\Debug\gp_2022_a.Form1.resources
