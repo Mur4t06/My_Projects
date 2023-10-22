@@ -1,0 +1,58 @@
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #34495e;
+
+}
+
+li {
+	display:inline-block;
+	font-family:Gabriola;
+	font-size:30px;
+
+}
+
+li a {
+	display: block;
+	color: white ;
+	text-align: center;
+	padding: 2px 16px;
+	text-decoration: none;
+
+}
+
+li a:hover{
+	background-color:lightgray;
+	color:darkblue;
+
+}
+	
+ul li ul {
+	background-color:#2c3e50;
+	display:none;
+	position:absolute;
+	width:150px;
+
+}
+
+ul li:hover ul{
+	display:block;
+
+}
+
+li ul li { 
+	display:block;
+
+}
+
+body {
+	/*display:inline-block;*/
+	font-family:Gabriola;
+	font-size:30px;
+	/*background-image:url
+("BMW_M4_F82.jpg");*/
+
+}
+

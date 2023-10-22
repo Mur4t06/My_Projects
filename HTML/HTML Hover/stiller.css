@@ -1,0 +1,40 @@
+*{margin: 2px; padding: 2px;}
+body{
+background-color: lightgray;
+}
+h4{
+	color: purple;
+	text-align: center;
+	font-family:Gabriola;
+	font-size: 42px;
+}
+button{
+	cursor: pointer;
+	border: 2px solid darkblue;
+	margin-top: 10px;
+	width; 250px;
+	padding: 5px;
+	border-radius: 35px;	
+	color:darkblue;
+	background-color: darkgray;
+	font-size: 32px;	
+	font-family:Gabriola;
+}
+button:hover{
+	background-color: white;
+}
+table:hover{
+	background-color: white;
+}
+tr:hover{
+	background-color: yellow;
+	height:32px;
+}
+td:hover{
+	background-color: lightgreen;
+}
+img:hover{
+	border: solid;
+	border-width: 6px;
+	border-color: darkgreen;
+}

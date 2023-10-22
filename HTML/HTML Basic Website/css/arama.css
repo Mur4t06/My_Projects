@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+.arama_blok{
+border:2px solid #919191;
+width:440px;
+height:48px;
+/*border-top-right-radius:5px;
+border-bottom-right-radius:5px;*/
+border-radius:5px;
+}
+.arama_sol{
+float:left;
+padding-top:4px;
+padding-left:4px;
+}
+.arama_sag{
+float:left;
+}
+.bitir{clear:both;}
+
+.arama_text{
+border:0px;
+height:38px;
+background-image:url(../images/arama.jpg);
+background-repeat:no-repeat;
+background-position:10px center; 
+width:334px;
+padding-left:40px;
+color:#484848;
+font-weight:bold;
+font-size:16px; 
+}
+.arama_buton{
+border:0px;
+height:48px;
+width:60px;
+background-color:#919191;
+color:#FFF;
+text-align:center;
+font-weight:bold;
+}
