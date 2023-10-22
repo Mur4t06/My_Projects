@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBMUAYENETAKIPModelStoreContainer" CdmEntityContainer="DBMUAYENETAKIPEntities">
+    <EntitySetMapping Name="ANABILIMDALI">
+      <EntityTypeMapping TypeName="DBMUAYENETAKIPModel.ANABILIMDALI">
+        <MappingFragment StoreEntitySet="ANABILIMDALI">
+          <ScalarProperty Name="ANABILIMDALIID" ColumnName="ANABILIMDALIID" />
+          <ScalarProperty Name="ADI" ColumnName="ADI" />
+          <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOKTOR">
+      <EntityTypeMapping TypeName="DBMUAYENETAKIPModel.DOKTOR">
+        <MappingFragment StoreEntitySet="DOKTOR">
+          <ScalarProperty Name="DOKTORID" ColumnName="DOKTORID" />
+          <ScalarProperty Name="ANABILIMDALIID" ColumnName="ANABILIMDALIID" />
+          <ScalarProperty Name="ADI" ColumnName="ADI" />
+          <ScalarProperty Name="SOYADI" ColumnName="SOYADI" />
+          <ScalarProperty Name="TCKIMLIKNO" ColumnName="TCKIMLIKNO" />
+          <ScalarProperty Name="CINSIYETI" ColumnName="CINSIYETI" />
+          <ScalarProperty Name="KANGRUBU" ColumnName="KANGRUBU" />
+          <ScalarProperty Name="DOGUMTARIHI" ColumnName="DOGUMTARIHI" />
+          <ScalarProperty Name="ADRES" ColumnName="ADRES" />
+          <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+          <ScalarProperty Name="EPOSTA" ColumnName="EPOSTA" />
+          <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HASTA">
+      <EntityTypeMapping TypeName="DBMUAYENETAKIPModel.HASTA">
+        <MappingFragment StoreEntitySet="HASTA">
+          <ScalarProperty Name="HASTAID" ColumnName="HASTAID" />
+          <ScalarProperty Name="TCKIMLIKNO" ColumnName="TCKIMLIKNO" />
+          <ScalarProperty Name="ADI" ColumnName="ADI" />
+          <ScalarProperty Name="SOYADI" ColumnName="SOYADI" />
+          <ScalarProperty Name="CINSIYET" ColumnName="CINSIYET" />
+          <ScalarProperty Name="KANGRUBU" ColumnName="KANGRUBU" />
+          <ScalarProperty Name="DOGUMTARIHI" ColumnName="DOGUMTARIHI" />
+          <ScalarProperty Name="ADRES" ColumnName="ADRES" />
+          <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+          <ScalarProperty Name="EPOSTA" ColumnName="EPOSTA" />
+          <ScalarProperty Name="SİFRE" ColumnName="SİFRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RANDEVU">
+      <EntityTypeMapping TypeName="DBMUAYENETAKIPModel.RANDEVU">
+        <MappingFragment StoreEntitySet="RANDEVU">
+          <ScalarProperty Name="RANDEVUID" ColumnName="RANDEVUID" />
+          <ScalarProperty Name="DOKTORID" ColumnName="DOKTORID" />
+          <ScalarProperty Name="HASTAID" ColumnName="HASTAID" />
+          <ScalarProperty Name="MUAYENETARIH" ColumnName="MUAYENETARIH" />
+          <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DBMUAYENETAKIPModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MUAYENE">
+      <EntityTypeMapping TypeName="DBMUAYENETAKIPModel.MUAYENE">
+        <MappingFragment StoreEntitySet="MUAYENE">
+          <ScalarProperty Name="MUAYENEID" ColumnName="MUAYENEID" />
+          <ScalarProperty Name="RANDEVUID" ColumnName="RANDEVUID" />
+          <ScalarProperty Name="TESHIS" ColumnName="TESHIS" />
+          <ScalarProperty Name="TEDAVI" ColumnName="TEDAVI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DBMUAYENETAKIPModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DBMUAYENETAKIPModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DBMUAYENETAKIPModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DBMUAYENETAKIPModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBMUAYENETAKIPModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DBMUAYENETAKIPModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBMUAYENETAKIPModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DBMUAYENETAKIPModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DBMUAYENETAKIPModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

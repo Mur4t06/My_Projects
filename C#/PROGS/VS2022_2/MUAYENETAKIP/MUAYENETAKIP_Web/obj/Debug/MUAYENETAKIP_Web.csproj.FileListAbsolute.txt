@@ -1,0 +1,2 @@
+D:\PROGS\VS2022_2\MUAYENETAKIP\MUAYENETAKIP_Web\obj\Debug\MUAYENETAKIP_Web.csproj.AssemblyReference.cache
+D:\PROGS\VS2022_2\MUAYENETAKIP\MUAYENETAKIP_Web\obj\Debug\MUAYENETAKIP_Web.csproj.CoreCompileInputs.cache

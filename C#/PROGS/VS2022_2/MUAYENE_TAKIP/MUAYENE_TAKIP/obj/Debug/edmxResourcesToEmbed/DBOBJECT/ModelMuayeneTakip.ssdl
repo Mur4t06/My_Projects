@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBMUAYENETAKIPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ANABILIMDALI">
+    <Key>
+      <PropertyRef Name="ANABILIMDALIID" />
+    </Key>
+    <Property Name="ANABILIMDALIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ADI" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ACIKLAMA" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="DOKTOR">
+    <Key>
+      <PropertyRef Name="DOKTORID" />
+    </Key>
+    <Property Name="DOKTORID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ANABILIMDALIID" Type="int" Nullable="false" />
+    <Property Name="ADI" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SOYADI" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TCKIMLIKNO" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="CINSIYETI" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="KANGRUBU" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DOGUMTARIHI" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ADRES" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="TELEFON" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="EPOSTA" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SIFRE" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HASTA">
+    <Key>
+      <PropertyRef Name="HASTAID" />
+    </Key>
+    <Property Name="HASTAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TCKIMLIKNO" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="ADI" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SOYADI" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CINSIYET" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="KANGRUBU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DOGUMTARIHI" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ADRES" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="TELEFON" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="EPOSTA" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SİFRE" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMUAYENETAKIP.dbo.MUAYENE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="MUAYENE">
+    <Key>
+      <PropertyRef Name="MUAYENEID" />
+      <PropertyRef Name="RANDEVUID" />
+      <PropertyRef Name="TESHIS" />
+      <PropertyRef Name="TEDAVI" />
+    </Key>
+    <Property Name="MUAYENEID" Type="int" Nullable="false" />
+    <Property Name="RANDEVUID" Type="int" Nullable="false" />
+    <Property Name="TESHIS" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="TEDAVI" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RANDEVU">
+    <Key>
+      <PropertyRef Name="RANDEVUID" />
+    </Key>
+    <Property Name="RANDEVUID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DOKTORID" Type="int" Nullable="false" />
+    <Property Name="HASTAID" Type="int" Nullable="false" />
+    <Property Name="MUAYENETARIH" Type="datetime" Nullable="false" />
+    <Property Name="ACIKLAMA" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_DOKTOR_ANABILIMDALI">
+    <End Role="ANABILIMDALI" Type="Self.ANABILIMDALI" Multiplicity="1" />
+    <End Role="DOKTOR" Type="Self.DOKTOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANABILIMDALI">
+        <PropertyRef Name="ANABILIMDALIID" />
+      </Principal>
+      <Dependent Role="DOKTOR">
+        <PropertyRef Name="ANABILIMDALIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MUAYENE_RANDEVU">
+    <End Role="RANDEVU" Type="Self.RANDEVU" Multiplicity="1" />
+    <End Role="MUAYENE" Type="Self.MUAYENE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RANDEVU">
+        <PropertyRef Name="RANDEVUID" />
+      </Principal>
+      <Dependent Role="MUAYENE">
+        <PropertyRef Name="RANDEVUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RANDEVU_DOKTOR">
+    <End Role="DOKTOR" Type="Self.DOKTOR" Multiplicity="1" />
+    <End Role="RANDEVU" Type="Self.RANDEVU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOKTOR">
+        <PropertyRef Name="DOKTORID" />
+      </Principal>
+      <Dependent Role="RANDEVU">
+        <PropertyRef Name="DOKTORID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RANDEVU_HASTA">
+    <End Role="HASTA" Type="Self.HASTA" Multiplicity="1" />
+    <End Role="RANDEVU" Type="Self.RANDEVU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HASTA">
+        <PropertyRef Name="HASTAID" />
+      </Principal>
+      <Dependent Role="RANDEVU">
+        <PropertyRef Name="HASTAID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="DBMUAYENETAKIPModelStoreContainer">
+    <EntitySet Name="ANABILIMDALI" EntityType="Self.ANABILIMDALI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOKTOR" EntityType="Self.DOKTOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HASTA" EntityType="Self.HASTA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RANDEVU" EntityType="Self.RANDEVU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MUAYENE" EntityType="Self.MUAYENE" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [MUAYENE].[MUAYENEID] AS [MUAYENEID], 
+    [MUAYENE].[RANDEVUID] AS [RANDEVUID], 
+    [MUAYENE].[TESHIS] AS [TESHIS], 
+    [MUAYENE].[TEDAVI] AS [TEDAVI]
+    FROM [dbo].[MUAYENE] AS [MUAYENE]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_DOKTOR_ANABILIMDALI" Association="Self.FK_DOKTOR_ANABILIMDALI">
+      <End Role="ANABILIMDALI" EntitySet="ANABILIMDALI" />
+      <End Role="DOKTOR" EntitySet="DOKTOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MUAYENE_RANDEVU" Association="Self.FK_MUAYENE_RANDEVU">
+      <End Role="RANDEVU" EntitySet="RANDEVU" />
+      <End Role="MUAYENE" EntitySet="MUAYENE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RANDEVU_DOKTOR" Association="Self.FK_RANDEVU_DOKTOR">
+      <End Role="DOKTOR" EntitySet="DOKTOR" />
+      <End Role="RANDEVU" EntitySet="RANDEVU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RANDEVU_HASTA" Association="Self.FK_RANDEVU_HASTA">
+      <End Role="HASTA" EntitySet="HASTA" />
+      <End Role="RANDEVU" EntitySet="RANDEVU" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

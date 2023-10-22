@@ -1,0 +1,2 @@
+D:\PROGS\VS2022_2\MUAYENE_TAKIP\MUAYENE_TAKIP\obj\Debug\MUAYENE_TAKIP.csproj.AssemblyReference.cache
+D:\PROGS\VS2022_2\MUAYENE_TAKIP\MUAYENE_TAKIP\obj\Debug\MUAYENE_TAKIP.csproj.CoreCompileInputs.cache
